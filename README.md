@@ -1,6 +1,10 @@
 # 用途
 建立 [Mini-ghost/16th-ithelp-vue-components](https://github.com/Mini-ghost/16th-ithelp-vue-components.git) Docker 運行環境
 
+# 環境依賴
+- Bash
+- Docker
+
 # 開始您的atomic vue component之旅
 ```
 cp .env.example .env && ./bin/god up
