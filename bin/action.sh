@@ -7,7 +7,7 @@ volume_dir="$(pwd)/app"
 
 chown_volume_dir(){
     echo_action "變更 $volume_dir 擁有者"
-    sudo chown -R $USER: "$1"
+    sudo chown -R $USER: "$volume_dir"
 }
 
 create_volume_dir(){
@@ -56,7 +56,7 @@ docker_run(){
     if [[ ! -d "$volume_dir" ]]
     then
         create_volume_dir
-        chown_volume_dir "$volume_dir"
+        chown_volume_dir
     fi
     
     echo_action "建立並啟動container: $CONTAINER_NAME"
