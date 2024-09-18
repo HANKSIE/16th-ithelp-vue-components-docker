@@ -21,22 +21,27 @@ create_volume_dir(){
 }
 
 docker_rmi(){
+    echo_action "移除image: $IMAGE_NAME"
     docker rmi $IMAGE_NAME
 }
 
 docker_build(){
+    echo_action "建立image: $IMAGE_NAME"
     docker build . -t $IMAGE_NAME
 }
 
 docker_start(){
+    echo_action "啟動container: $CONTAINER_NAME"
     docker restart $CONTAINER_NAME
 }
 
 docker_stop(){
+    echo_action "停止container: $CONTAINER_NAME"
     docker stop $CONTAINER_NAME
 }
 
 docker_rm(){
+    echo_action "移除container: $CONTAINER_NAME"
     docker rm $CONTAINER_NAME
 }
 
@@ -54,6 +59,7 @@ docker_run(){
         chown_volume_dir "$volume_dir"
     fi
     
+    echo_action "建立並啟動container: $CONTAINER_NAME"
     docker run \
         -d \
         -p $LOCAL_PORT:5173 \
