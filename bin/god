@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+source "$(pwd)/.env"
+source "$(pwd)/bin/action.sh"
+
+cmd=$1
+
+if [[ $cmd = 'up' ]]
+then
+    docker_up
+    start_exit
+fi
+
+if [[ $cmd = 'down' ]]
+then
+    docker_down
+    done_exit
+fi
+
+if [[ $cmd = 'start' ]]
+then
+    docker_start
+    start_exit
+fi
+
+if [[ $cmd = 'stop' ]]
+then
+    docker_stop
+    done_exit
+fi
+
+if [[ $cmd = 'reset' ]]
+then
+    reset
+    done_exit
+fi
+
+unknown_cmd_exit
